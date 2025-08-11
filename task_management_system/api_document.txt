@@ -1,0 +1,429 @@
+Auth register
+http://127.0.0.1:8000/api/register/
+{
+  "username": "admin",
+  "password": "jabir2025"
+}
+{
+  "username": "jabir",
+  "password": "mypassword123"
+}
+token generate
+http://127.0.0.1:8000/api/token/
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTUwMDE4MywiaWF0IjoxNzU0ODk1MzgzLCJqdGkiOiI5ZjMxMDI2NWE2OGY0ODExOTZjZjBkMWZjZGQzNTAwNyIsInVzZXJfaWQiOiIyIn0.0qQsSZW8UaBQ4bVttLffPNykxITbfBFAKrb5WYa_2q4",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0OTM4NTgzLCJpYXQiOjE3NTQ4OTUzODMsImp0aSI6ImNmZWVkZmQwMDQ1YTQzZjhiOGQwYjYyODA1NGY2ODNjIiwidXNlcl9pZCI6IjIifQ.6dIzWRyfqOgJkg068-UkMlS2GUJFfqpjGWxPckJYgyg"
+}
+login
+http://127.0.0.1:8000/api/login/
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTUwMDI1NywiaWF0IjoxNzU0ODk1NDU3LCJqdGkiOiJmN2I0ZWZjNTVkNTM0N2MzYTE3Y2ZjNzI5Nzg5OTM3NyIsInVzZXJfaWQiOiIyIn0.jcvNLUwDnVV-cHdNW2rFLuq5Lpm-u6_5N7x-JUev-tk",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0OTM4NjU3LCJpYXQiOjE3NTQ4OTU0NTcsImp0aSI6IjYzNGU2NWI2YTBiMjRhY2ZiMTNmNjJjMWU4NjA1NTRhIiwidXNlcl9pZCI6IjIifQ.Jj-XwumwNjTAWDHC7BtkxMydTl9J3BBtYlbPs7JDgjQ",
+    "message": "Login successful",
+    "username": "admin"
+}
+
+Author get & post
+http://127.0.0.1:8000/api/authors/
+POST
+    {
+        "name": "Kamal",
+        "bio": "xyz"
+    }
+GET
+    {
+        "id": 1,
+        "name": "Kamal",
+        "bio": "xyz"
+    }
+Category GET & POST
+http://127.0.0.1:8000/api/categories/
+POST 
+    {
+        "name": "Tech"
+    },
+    {
+        "name": "IT"
+    }
+GET
+    {
+        "id": 1,
+        "name": "Tech"
+    },
+    {
+        "id": 2,
+        "name": "IT"
+    }
+Books & Metadata GET, POST, PUT, delete
+http://127.0.0.1:8000/api/books/
+POST
+    {
+        "title": "bangla kobita",
+        "description": "good bangla",
+        "author": 1
+        "category": 1
+        "total_copies": 3,
+        "available_copies": 1
+    },
+    {
+        "title": "Python",
+        "description": "good python programming",
+        "author": 1
+        "category": 2
+        "total_copies": 4,
+        "available_copies": 4
+    }
+    GET
+    [
+    {
+        "id": 1,
+        "title": "bangla kobita",
+        "description": "good bangla",
+        "author": {
+            "id": 1,
+            "name": "Kamal",
+            "bio": "xyz"
+        },
+        "category": {
+            "id": 1,
+            "name": "Tech"
+        },
+        "total_copies": 3,
+        "available_copies": 1
+    },
+    {
+        "id": 2,
+        "title": "Python",
+        "description": "good python programming",
+        "author": {
+            "id": 1,
+            "name": "Kamal",
+            "bio": "xyz"
+        },
+        "category": {
+            "id": 2,
+            "name": "IT"
+        },
+        "total_copies": 4,
+        "available_copies": 4
+    },
+    {
+        "id": 3,
+        "title": "Python",
+        "description": "good python programming",
+        "author": {
+            "id": 1,
+            "name": "Kamal",
+            "bio": "xyz"
+        },
+        "category": {
+            "id": 2,
+            "name": "IT"
+        },
+        "total_copies": 4,
+        "available_copies": 4
+    }
+]
+GET /api/books/{id}/
+{
+    "id": 1,
+    "title": "bangla kobita",
+    "description": "good bangla",
+    "author": {
+        "id": 1,
+        "name": "Kamal",
+        "bio": "xyz"
+    },
+    "category": {
+        "id": 1,
+        "name": "Tech"
+    },
+    "total_copies": 3,
+    "available_copies": 1
+}
+PUT /api/books/{id}/
+{
+    "id": 1,
+    "title": "bangla kobita",
+    "description": "good bangla kobita",
+    "author": {
+        "id": 1,
+        "name": "Kamal",
+        "bio": "xyz"
+    },
+    "category": {
+        "id": 1,
+        "name": "Tech"
+    },
+    "total_copies": 3,
+    "available_copies": 1
+}
+DELETE /api/books/2/
+{
+    "id": 1,
+    "title": "bangla kobita",
+    "description": "good bangla kobita",
+    "author": {
+        "id": 1,
+        "name": "Kamal",
+        "bio": "xyz"
+    },
+    "category": {
+        "id": 1,
+        "name": "Tech"
+    },
+    "total_copies": 3,
+    "available_copies": 1
+
+}
+Borrowing
+POST /api/borrow/
+    {
+        "user": 2,
+        "book_id": 1,
+    }
+GET /api/borrow/    
+[
+    {
+        "id": 2,
+        "user": {
+            "id": 2,
+            "username": "admin",
+            "email": ""
+        },
+        "book": {
+            "id": 1,
+            "title": "bangla kobita",
+            "description": "good bangla kobita",
+            "author": {
+                "id": 1,
+                "name": "Kamal",
+                "bio": "xyz"
+            },
+            "category": {
+                "id": 1,
+                "name": "Tech"
+            },
+            "total_copies": 3,
+            "available_copies": 1
+        },
+        "borrow_date": "2025-08-10T09:44:28.904957Z",
+        "due_date": "2025-08-24T09:44:28.904981Z",
+        "return_date": null,
+        "is_late": null
+    }
+]
+Users have a borrowing limit (max 3 books at once)
+- GET /api/borrow/
+[
+    {
+        "id": 8,
+        "user": {
+            "id": 2,
+            "username": "admin",
+            "email": ""
+        },
+        "book": {
+            "id": 1,
+            "title": "bangla kobita",
+            "description": "good bangla kobita",
+            "author": {
+                "id": 1,
+                "name": "Kamal",
+                "bio": "xyz"
+            },
+            "category": {
+                "id": 1,
+                "name": "Tech"
+            },
+            "total_copies": 3,
+            "available_copies": 1
+        },
+        "borrow_date": "2025-07-14T00:00:00Z",
+        "due_date": "2025-07-28T00:00:00Z",
+        "return_date": null,
+        "is_late": null
+    },
+    {
+        "id": 10,
+        "user": {
+            "id": 2,
+            "username": "admin",
+            "email": ""
+        },
+        "book": {
+            "id": 2,
+            "title": "Python",
+            "description": "good python programming",
+            "author": {
+                "id": 1,
+                "name": "Kamal",
+                "bio": "xyz"
+            },
+            "category": {
+                "id": 2,
+                "name": "IT"
+            },
+            "total_copies": 4,
+            "available_copies": 2
+        },
+        "borrow_date": "2025-07-10T00:00:00Z",
+        "due_date": "2025-07-24T00:00:00Z",
+        "return_date": null,
+        "is_late": null
+    },
+    {
+        "id": 11,
+        "user": {
+            "id": 2,
+            "username": "admin",
+            "email": ""
+        },
+        "book": {
+            "id": 2,
+            "title": "Python",
+            "description": "good python programming",
+            "author": {
+                "id": 1,
+                "name": "Kamal",
+                "bio": "xyz"
+            },
+            "category": {
+                "id": 2,
+                "name": "IT"
+            },
+            "total_copies": 4,
+            "available_copies": 2
+        },
+        "borrow_date": "2025-07-10T00:00:00Z",
+        "due_date": "2025-07-24T00:00:00Z",
+        "return_date": null,
+        "is_late": null
+    }
+]
+after 3 borrow again try, this time show message below
+{
+    "error": "Borrow limit reached (max 3 active books)"
+}
+
+
+Return Borrowing
+http://127.0.0.1:8000/api/return/
+{
+    "user": 1
+    "borrow_id": 2
+}
+
+{
+    "message": "Book returned successfully"
+}
+if we again check borrow list 
+http://127.0.0.1:8000/api/borrow/
+[]  showing blank
+
+Penalties check
+now i borrow book by custom date so that i could check Penalties point
+http://127.0.0.1:8000/api/borrow/
+POST
+{
+    "user": 1
+    "borrow_id": 1
+    "borrow_date": 2025-07-14
+}
+Result
+{
+    "id": 7,
+    "user": {
+        "id": 2,
+        "username": "admin",
+        "email": ""
+    },
+    "book": {
+        "id": 1,
+        "title": "bangla kobita",
+        "description": "good bangla kobita",
+        "author": {
+            "id": 1,
+            "name": "Kamal",
+            "bio": "xyz"
+        },
+        "category": {
+            "id": 1,
+            "name": "Tech"
+        },
+        "total_copies": 3,
+        "available_copies": 1
+    },
+    "borrow_date": "2025-07-14T00:00:00Z",
+    "due_date": "2025-07-28T00:00:00Z",
+    "return_date": null,
+    "is_late": null
+}
+now return
+http://127.0.0.1:8000/api/return/
+{
+    "user": 2,
+    "borrow_id": 7,
+}
+
+{
+    "message": "Book returned successfully"
+}
+now check Penalties
+http://127.0.0.1:8000/api/users/2/penalties/
+Result
+{
+    "penalty_points": 14
+}
+
+Extra/Bonus (if time allows)
+- Send email notification on due date
+http://127.0.0.1:8000/send-due-notifications/
+{
+    "message": "Due date notifications task started."
+}
+
+
+again login 
+http://127.0.0.1:8000/api/token/
+{
+  "username": "jabir",
+  "password": "mypassword123"
+}
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTUyNjI3OSwiaWF0IjoxNzU0OTIxNDc5LCJqdGkiOiJiZDJmMzZlZjZhZGM0ODNhOTQyNTJhMGEyNzhmMzNhMCIsInVzZXJfaWQiOiI0In0.edOwWcBT6k_LrDRS3th5Tf-R5WYnVNaBqNjxonRRFTg",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0OTY0Njc5LCJpYXQiOjE3NTQ5MjE0NzksImp0aSI6IjdmNGIzNjk1NmUxMzRkZTliZGE1YTYxYjJjM2U4M2YxIiwidXNlcl9pZCI6IjQifQ.nDR8B9P4hzP8__VNIUCjKPqY4HH-Hl8leS8rTGURBaE"
+}
+
+login
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTUyNjQ2NSwiaWF0IjoxNzU0OTIxNjY1LCJqdGkiOiIyOGMyOTg5N2IwY2E0NDE5ODM4NDEwOWJiZDA1NTkzOCIsInVzZXJfaWQiOiI0In0.bq6cbV-fw_tQ7q-PU8l3C48cvOb5RAPtTSq493CpujM",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU0OTY0ODY1LCJpYXQiOjE3NTQ5MjE2NjUsImp0aSI6ImM4MmU1ZDhlMzhmZjQ3ZjdhY2NhNmEzNWU2ZmI3NTJmIiwidXNlcl9pZCI6IjQifQ.0rXReDtf3gNN-fQIoPW58uSo9tC0lah3T0wPl2-0KQU",
+    "message": "Login successful",
+    "username": "jabir"
+}
+POST /api/authors/ (admin)
+POST http://127.0.0.1:8000/api/authors/
+{
+    "detail": "You do not have permission to perform this action."
+}
+POST /api/categories/ (admin)
+http://127.0.0.1:8000/api/categories/
+{
+    "detail": "You do not have permission to perform this action."
+}
+POST /api/books/ — Admin only
+http://127.0.0.1:8000/api/books/
+{
+    "detail": "You do not have permission to perform this action."
+}
+- PUT /api/books/{id}/ — Admin only
+http://127.0.0.1:8000/api/books/1/
+{
+    "detail": "You do not have permission to perform this action."
+}
+DELETE /api/books/{id}/ — Admin only
+http://127.0.0.1:8000/api/books/1/
+{
+    "detail": "You do not have permission to perform this action."
+}
