@@ -77,4 +77,4 @@ Returning:
 6. This system assumes all books and users are correctly managed in the database.
 7. No pagination or advanced search filtering is implemented beyond basic search by author/category names.
 
-Implement API rate limiting (per user): I set it but I could not enough time to check properly
+Implement API rate limiting (per user): I set the default branch, but I didn’t have enough time to check it properly.
