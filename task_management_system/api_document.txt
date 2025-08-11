@@ -1,3 +1,5 @@
+Here API documentation
+
 Auth register
 http://127.0.0.1:8000/api/register/
 {
@@ -310,7 +312,7 @@ after 3 borrow again try, this time show message below
 Return Borrowing
 http://127.0.0.1:8000/api/return/
 {
-    "user": 1
+    "user": 2
     "borrow_id": 2
 }
 
@@ -326,7 +328,7 @@ now i borrow book by custom date so that i could check Penalties point
 http://127.0.0.1:8000/api/borrow/
 POST
 {
-    "user": 1
+    "user": 2
     "borrow_id": 1
     "borrow_date": 2025-07-14
 }
